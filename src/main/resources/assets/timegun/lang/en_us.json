@@ -2,6 +2,7 @@
   "itemGroup.timegun": "Example Mod Tab",
   "block.timegun.example_block": "Example Block",
   "item.timegun.example_item": "Example Item",
+  "item.timegun.time_gun": "Time Stick",
 
   "timegun.configuration.title": "Time Gun Configs",
   "timegun.configuration.section.timegun.common.toml": "Time Gun Configs",

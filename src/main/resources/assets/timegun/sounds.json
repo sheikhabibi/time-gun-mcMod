@@ -1,0 +1,9 @@
+{
+  "freeze_entity": {
+    "category": "player",
+    "subtitle": "timegun.subtitle.freeze",
+    "sounds": [
+      "timegun:freeze"
+    ]
+  }
+}

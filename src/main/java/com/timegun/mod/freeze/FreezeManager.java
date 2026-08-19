@@ -31,10 +31,16 @@ public class FreezeManager {
         if (target instanceof Mob mob) {
             mob.setNoAi(true);
             mob.setPersistenceRequired();
+
+            // --- NEW AMNESIA CODE ---
+            mob.setTarget(null); // Makes the mob forget who it was attacking!
         }
 
         // Add the mob to our tracker, or reset its timer back to 100 if shot again!
         FROZEN_ENTITIES.put(target, FREEZE_DURATION_TICKS);
+
+        // Play the custom freeze sound!
+        target.level().playSound(null, target.blockPosition(), com.timegun.mod.TimeGun.FREEZE_SOUND.get(), net.minecraft.sounds.SoundSource.PLAYERS, 1.0f, 1.0f);
     }
 
     public static void unfreezeEntity(LivingEntity target) {
