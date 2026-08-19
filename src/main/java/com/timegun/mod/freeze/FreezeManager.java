@@ -118,4 +118,16 @@ public class FreezeManager {
             }
         }
     }
+
+    // Fixes the Slime splitting bug where babies inherit the frozen brain!
+    @SubscribeEvent
+    public static void onEntityJoin(net.neoforged.neoforge.event.entity.EntityJoinLevelEvent event) {
+        if (event.getEntity() instanceof Mob mob) {
+            // If it spawns with NoAI, but we aren't tracking it, wake it up!
+            if (mob.isNoAi() && !FROZEN_ENTITIES.containsKey(mob)) {
+                mob.setNoAi(false);
+                mob.setNoGravity(false);
+            }
+        }
+    }
 }
