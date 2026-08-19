@@ -72,4 +72,28 @@ public class FreezeManager {
             }
         }
     }
+    // Prevents interacting with frozen entities AND stops trading when shooting point-blank
+    @SubscribeEvent
+    public static void onEntityInteract(net.neoforged.neoforge.event.entity.player.PlayerInteractEvent.EntityInteract event) {
+        if (event.getTarget() instanceof LivingEntity livingTarget) {
+
+            // 1. If the mob is ALREADY frozen, block all interaction completely
+            if (FROZEN_ENTITIES.containsKey(livingTarget)) {
+                event.setCanceled(true);
+                return;
+            }
+
+            // 2. If the player is holding the Time Gun, intercept the click!
+            if (event.getEntity().getItemInHand(event.getHand()).getItem() instanceof com.timegun.mod.item.TimeGunItem) {
+                event.setCanceled(true); // This instantly stops the trading menu from opening
+
+                // Freeze the mob and apply the cooldown manually
+                if (!event.getLevel().isClientSide()) {
+                    freezeEntity(livingTarget);
+                    // changed the cooldown to 20 ticks (1 second)
+                    event.getEntity().getCooldowns().addCooldown(event.getEntity().getItemInHand(event.getHand()), 20);
+                }
+            }
+        }
+    }
 }
