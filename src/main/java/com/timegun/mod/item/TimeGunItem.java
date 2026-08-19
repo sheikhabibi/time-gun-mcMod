@@ -15,6 +15,8 @@ import java.util.Optional;
 public class TimeGunItem extends Item {
     // We will move this to a config file in Phase 16
     private static final double RANGE = 20.0;
+    // 20 ticks = 1 second cooldown
+    private static final int COOLDOWN_TICKS = 20;
 
     public TimeGunItem(Properties properties) {
         super(properties);
@@ -62,7 +64,9 @@ public class TimeGunItem extends Item {
                 System.out.println("Time Gun Fired: Missed!");
             }
         }
-
+        // apply the cooldown to the player
+        // Changed 'this' to 'player.getItemInHand(hand)' to match the new API
+        player.getCooldowns().addCooldown(player.getItemInHand(hand), COOLDOWN_TICKS);
         // 5. Return the modern interaction result
         return InteractionResult.SUCCESS;
     }
