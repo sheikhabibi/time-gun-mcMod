@@ -63,6 +63,27 @@ public class FreezeManager {
                 continue;
             }
 
+            // --- NEW PARTICLE CODE START ---
+            // Tell the server to broadcast particles to everyone looking at the mob!
+            if (entity.level() instanceof net.minecraft.server.level.ServerLevel serverLevel) {
+                // We use SNOWFLAKE particles, spawning 2 per tick around the mob's body
+                serverLevel.sendParticles(
+                        net.minecraft.core.particles.ParticleTypes.SNOWFLAKE,
+                        entity.getX(), entity.getY() + (entity.getBbHeight() / 2.0), entity.getZ(),
+                        2, // number of particles
+                        entity.getBbWidth() / 1.5, entity.getBbHeight() / 2.0, entity.getBbWidth() / 1.5, // spread XYZ
+                        0.0 // speed
+                );
+            }
+            // --- NEW PARTICLE CODE END ---
+
+            // --- NEW CREEPER DEFUSE CODE START ---
+            // If the frozen entity is a Creeper, force its explosion fuse to run in reverse!
+            if (entity instanceof net.minecraft.world.entity.monster.Creeper creeper) {
+                creeper.setSwellDir(-1);
+            }
+            // --- NEW CREEPER DEFUSE CODE END ---
+
             // If time is up, unfreeze them! Otherwise, save the new time.
             if (ticksRemaining <= 0) {
                 unfreezeEntity(entity);
@@ -72,6 +93,7 @@ public class FreezeManager {
             }
         }
     }
+
     // Prevents interacting with frozen entities AND stops trading when shooting point-blank
     @SubscribeEvent
     public static void onEntityInteract(net.neoforged.neoforge.event.entity.player.PlayerInteractEvent.EntityInteract event) {
