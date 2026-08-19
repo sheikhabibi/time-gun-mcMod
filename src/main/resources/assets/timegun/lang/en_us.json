@@ -1,0 +1,13 @@
+{
+  "itemGroup.timegun": "Example Mod Tab",
+  "block.timegun.example_block": "Example Block",
+  "item.timegun.example_item": "Example Item",
+
+  "timegun.configuration.title": "Time Gun Configs",
+  "timegun.configuration.section.timegun.common.toml": "Time Gun Configs",
+  "timegun.configuration.section.timegun.common.toml.title": "Time Gun Configs",
+  "timegun.configuration.items": "Item List",
+  "timegun.configuration.logDirtBlock": "Log Dirt Block",
+  "timegun.configuration.magicNumberIntroduction": "Magic Number Text",
+  "timegun.configuration.magicNumber": "Magic Number"
+}
