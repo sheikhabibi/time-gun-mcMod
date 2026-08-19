@@ -53,8 +53,11 @@ public class TimeGunItem extends Item {
 
             // 4. Did we hit something?
             if (target != null) {
-                // Success! Print it to the console for now.
                 System.out.println("Time Gun Hit: " + target.getName().getString());
+
+                // Call our new FreezeManager!
+                com.timegun.mod.freeze.FreezeManager.freezeEntity(target);
+
             } else {
                 System.out.println("Time Gun Fired: Missed!");
             }
