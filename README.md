@@ -1,25 +1,38 @@
+# Time Stick (NeoForge)
 
-Installation information
-=======
+A Minecraft 1.26.1 NeoForge mod that grants you the ultimate power over time. Craft the Time Stick to freeze hostile mobs, defuse explosive threats, and escape dangerous encounters.
 
-This template repository can be directly cloned to get you started with a new
-mod. Simply create a new repository cloned from this one, by following the
-instructions provided by [GitHub](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template).
+## Features
 
-Once you have your clone, simply open the repository in the IDE of your choice. The usual recommendation for an IDE is either IntelliJ IDEA or Eclipse.
+* **Absolute Stasis:** Hit any entity to freeze it completely in place for 5 seconds. Frozen entities lose all AI, gravity, and movement.
+* **Creeper Defusal:** Freezing a Creeper forces its explosion fuse to run in reverse, saving your base from destruction.
+* **Target Amnesia:** Hostile mobs (like Skeletons) forget who they were attacking while frozen, preventing unfair instant-shots the millisecond they unfreeze.
+* **Smart Splitting:** Slimes split normally upon death, but their babies will not inherit the frozen status or anti-gravity, keeping the game's physics stable.
+* **Custom Effects:** Features custom snowflake particle emissions and unique freezing sound effects (`freeze.ogg`) when striking a target.
 
-If at any point you are missing libraries in your IDE, or you've run into problems you can
-run `gradlew --refresh-dependencies` to refresh the local cache. `gradlew clean` to reset everything 
-{this does not affect your code} and then start the process again.
+## Crafting Recipe
 
-Mapping Names:
-============
-By default, the MDK is configured to use the official mapping names from Mojang for methods and fields 
-in the Minecraft codebase. These names are covered by a specific license. All modders should be aware of this
-license. For the latest license text, refer to the mapping file itself, or the reference copy here:
-https://github.com/NeoForged/NeoForm/blob/main/Mojang.md
+The Time Stick is a powerful, late-game item that requires braving the Ancient City to craft.
 
-Additional Resources: 
-==========
-Community Documentation: https://docs.neoforged.net/  
-NeoForged Discord: https://discord.neoforged.net/
+| Top | Middle | Bottom |
+| :--- | :--- | :--- |
+| Clock | Stick | Echo Shard |
+
+*Note: Recipe is shaped and must be placed in a standard 3x3 Crafting Table exactly in the center column.*
+
+## Installation
+
+1. Install **NeoForge** for Minecraft 1.26.1.
+2. Download the latest `timegun-1.0.0.jar` from CurseForge.
+3. Drop the `.jar` file into your Minecraft `mods` folder.
+4. Launch the game and enjoy!
+
+## Development
+
+This mod was built using the NeoForge framework.
+
+* **Mod ID:** `timegun`
+* **Internal Item ID:** `time_gun` (Displays as "Time Stick" in-game)
+* **Dependencies:** NeoForge 26.1.2+
+
+Feel free to fork this repository, submit pull requests, or use the code to learn how to manipulate entity AI and state data in modern Minecraft!
