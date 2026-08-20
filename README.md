@@ -23,7 +23,7 @@ The Time Stick is a powerful, late-game item that requires braving the Ancient C
 ## Installation
 
 1. Install **NeoForge** for Minecraft 1.26.1.
-2. Download the latest `timegun-1.0.0.jar` from CurseForge.
+2. Download the latest `timegun-1.0.0.jar` from the Releases tab (or CurseForge).
 3. Drop the `.jar` file into your Minecraft `mods` folder.
 4. Launch the game and enjoy!
 
